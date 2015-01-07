@@ -1,0 +1,16 @@
+plot device notes
+
+no 3d tho
+skew is nice
+text path is nice - get the outline of a text and then manipulate points - 	
+	the spider example
+stars and polygons are nice
+similar rotations and transforms
+random from a list is easy
+all the examples are similar - random positioning and overlapping
+decent grid and coordinate systems
+random skew is neat
+really efficient to choose from a list either variables or functions
+can talk to xml pretty easy!
+content = external data
+
