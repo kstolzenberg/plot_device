@@ -1,0 +1,79 @@
+# adapted from http://preshing.com/files/penrose.py
+size(1000, 1000)
+background(1)
+strokewidth(1)
+stroke(0,.25)
+fill(0,.25)
+
+import math
+import cmath
+num_subdivisions = 8
+
+# from math
+goldenRatio = (1 + math.sqrt(5)) / 2
+
+def subdivide(triangles):
+    result = []
+    for Color, A, B, C in triangles:
+        if Color == 0:
+            # the red triangles
+            P = A + (B - A) / goldenRatio
+            result += [(0, C, P, B), (1, P, C, A)]
+        else:
+            # the blue ones
+            Q = B + (A - B) / goldenRatio
+            R = B + (C - B) / goldenRatio
+            result += [(1, R, C, A), (1, Q, R, B), (0, R, Q, A)]
+        return result
+
+triangles = []
+for i in xrange(10):
+    B = cmath.rect(1, (2*i - 1) * math.pi / 10)
+    C = cmath.rect(1, (2*i + 1) * math.pi / 10)
+    if i % 2 == 0:
+        B, C = C, B
+    triangles.append((0, 0j, B, C))
+
+for i in xrange(num_subdivisions):
+    triangles = subdivide(triangles)
+
+translate(WIDTH / 2.0, HEIGHT / 2.0)
+wheelRadius = 1.2 * math.sqrt((WIDTH / 2.0) ** 2 + (HEIGHT / 2.0) ** 2)
+scale(wheelRadius)
+
+for Color, A, B, C in triangles:
+    if Color == 0:
+        # poly(A, B, C, points=3) try lines instead:: x1,y1,x2,y2
+        strokewidth(1)
+        beginpath()
+        moveto(A.real, A.imag)
+        lineto(B.real, B.imag)
+        lineto(C.real, C.imag)
+        endpath(draw = True)
+
+for Color, A, B, C in triangles:
+    if Color == 1:
+        strokewidth(1)
+        beginpath()
+        moveto(A.real, A.imag)
+        lineto(B.real, B.imag)
+        lineto(C.real, C.imag)
+        endpath(draw = True)
+        
+for Color, A, B, C in triangles:
+    beginpath()
+    moveto(C.real, C.imag)
+    lineto(A.real, A.imag)
+    lineto(B.real, B.imag)
+    stroke(0.2, 0.2, 0.2)
+        
+
+# we scaled...but what about the triangles? doesn't work!
+
+
+
+        
+
+    
+    
+    

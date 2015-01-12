@@ -11,9 +11,9 @@ def drawTree(x1,y1,angle,depth):
     if depth:
         x2 = x1 + int(math.cos(math.radians(angle)) * depth * 10.0)
         y2 = y1 + int(math.sin(math.radians(angle)) * depth * 10.0)
-        #line(x1, y1, x2, y2)
+        line(x1, y1, x2, y2)
         #rect(x1, y1, x2 - x1, y2 - y1)
-        oval(x1, y1, x2 - x1, y2 - y1)
+        #oval(x1, y1, x2 - x1, y2 - y1)
         #poly(x1, y1, 20, points = random(3,9))
         drawTree(x2, y2, angle - random(40), depth - 1)
         drawTree(x2, y2, angle + random(40), depth - 1)
