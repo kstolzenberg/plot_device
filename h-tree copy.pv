@@ -1,0 +1,20 @@
+size(1000, 1200)
+background(1)
+stroke(0,.5)
+strokewidth(3)
+pen(cap = ROUND)
+fill(255, .5)
+
+import math
+
+def drawH(x1, length, depth):
+    if depth:
+        x2 = x1 + length
+        line(x1, 500, x2, 500)
+        length = length/math.sqrt(2)
+        #transform(CORNER)
+        #rotate(-90)
+        drawH(x2, length, depth - 1)
+        
+drawH(500,100,10)
+print(math.radians(90))

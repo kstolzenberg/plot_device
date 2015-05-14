@@ -1,0 +1,11 @@
+size(512, 512)
+background(1)
+fill('#000',.5)
+
+poly(WIDTH/2,HEIGHT/2,50)
+#poly primitive is around center x,y
+scale(.5);
+poly(WIDTH/2,HEIGHT/2,50)
+
+#transform change registration from corner to center
+#need area

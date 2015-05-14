@@ -1,0 +1,23 @@
+# from http://mathworld.wolfram.com/BoxFractal.html
+# not there yet
+size(500, 500)
+background(1)
+stroke(0,.5)
+strokewidth(3)
+pen(cap = ROUND)
+fill(255, .2)
+
+
+def drawBox(x1, y1, w1, h1, depth):
+    if depth:
+        w2 = w1 / 3
+        h2 = h1 / 3
+        rect(x1, y1, w2, h2)
+        x2 = x1 + w2
+        y2 = y1 + h2
+        translate(x2, y2)
+        rect(0, 0, w2, h2)
+        # put it in an array? try for the 9?
+        drawBox(x2, y2, x2, h2, depth -1)
+    
+drawBox(WIDTH/2, HEIGHT/2, 90, 90, 4)

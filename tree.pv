@@ -18,5 +18,5 @@ def drawTree(x1,y1,angle,depth):
         drawTree(x2, y2, angle - random(40), depth - 1)
         drawTree(x2, y2, angle + random(40), depth - 1)
         
-drawTree(500, 600, -90, 10)
+drawTree(500, 600, -90, 9)
 # drawTree(500, 600, 90, 10)
